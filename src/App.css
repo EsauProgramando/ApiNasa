@@ -547,6 +547,7 @@ section {
   padding: 2rem;
   padding-bottom: 0;
   border-radius: 0.5rem;
+  
 }
 
 .packages .box-container .box .image img {
@@ -555,6 +556,7 @@ section {
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 0.5rem;
+  height: 250px;
 }
 
 .packages .slide .icons {
@@ -564,6 +566,7 @@ section {
   border-radius: 0.5rem;
   padding: 1rem;
   position: relative;
+  z-index: 100;
   top: -2rem;
   display: inline-block;
 }

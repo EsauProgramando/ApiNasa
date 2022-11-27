@@ -37,15 +37,7 @@ const GaleriaDetalle = () => {
         ) : (
           <>
             <div className="image">
-              {dataNasa.camera.name === "FHAZ" ? (
-                <img src={fhaz} alt="" />
-              ) : dataNasa.camera.name === "NAVCAM" ? (
-                <img src={NAVCAM} alt="robert" />
-              ) : dataNasa.camera.name === "MAST" ? (
-                <img src={robert} alt="robert" />
-              ) : (
-                <img src={camara3} alt="" />
-              )}
+              <img src={dataNasa.img_src} alt="img3" />
             </div>
 
             <div className="content detalle-content">
