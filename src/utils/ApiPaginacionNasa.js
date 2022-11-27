@@ -26,7 +26,7 @@ const ApifotoCamaraId = async (page, iddataNasa) => {
   return dataNasa[0];
 };
 const ApiNasaReciente = async () => {
-  const apiNasa = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2022-11-24&api_key=${
+  const apiNasa = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2022-11-25&api_key=${
     import.meta.env.VITE_API_KEY
   }`;
   const respuesta = await fetch(apiNasa);

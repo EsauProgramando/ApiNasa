@@ -19,61 +19,51 @@ const Galeria = () => {
   const handleChangePagina = (e, valor) => {
     setPagina(valor);
   };
-  const nasa1 = [];
-  const nasa2 = [];
-  const nasa3 = [];
-  const nasa4 = [];
-  const nasa5 = [];
-  const nasa6 = [];
-  const nasa7 = [];
-  const nasa8 = [];
-  const nasa9 = [];
-  let nuevoArrayK = {};
+  let nasa0 = [];
+  let nasa1 = [];
+  let nasa2 = [];
+  let nasa3 = [];
+  let nasa4 = [];
+  let nasa5 = [];
+  let nasa6 = [];
+  let nasa7 = [];
+  let nasa8 = [];
+  let nuevoArrayK1 = [];
+
+  var incioCont = 0;
+  var cant = 3;
   if (loading == false) {
-    for (let i = 0; i < 3; i++) {
-      nasa1.push(dataNasa.photos[i]);
+    var divisiones = Math.floor(dataNasa.photos.length / cant);
+    var divisionesSobra = Math.ceil(dataNasa.photos.length / cant);
+
+    for (let i = 0; i < divisiones; i++) {
+      for (let j = incioCont; j < cant + incioCont; j++) {
+        eval("nasa" + i + ".push(dataNasa.photos[" + j + "])");
+        //incioCont++
+      }
+
+      incioCont += cant;
+      eval("nuevoArrayK1.push(nasa" + i + ")");
     }
 
-    for (let i = 3; i < 6; i++) {
-      nasa2.push(dataNasa.photos[i]);
+    if (dataNasa.photos.length % cant != 0) {
+      for (
+        let k = incioCont;
+        k < incioCont + (divisionesSobra - divisiones);
+        k++
+      ) {
+        eval("nasa" + divisiones + ".push(dataNasa.photos[" + k + "])");
+      }
     }
-    for (let i = 6; i < 9; i++) {
-      nasa3.push(dataNasa.photos[i]);
+    if (nuevoArrayK1.length == divisiones) {
+      eval("nuevoArrayK1.push(nasa" + divisiones + ")");
     }
-    for (let i = 9; i < 12; i++) {
-      nasa4.push(dataNasa.photos[i]);
-    }
-    for (let i = 12; i < 15; i++) {
-      nasa5.push(dataNasa.photos[i]);
-    }
-    for (let i = 15; i < 18; i++) {
-      nasa6.push(dataNasa.photos[i]);
-    }
-    for (let i = 18; i < 21; i++) {
-      nasa7.push(dataNasa.photos[i]);
-    }
-    for (let i = 21; i < 24; i++) {
-      nasa8.push(dataNasa.photos[i]);
-    }
-    for (let i = 24; i < 25; i++) {
-      nasa9.push(dataNasa.photos[i]);
-    }
-
-    const nuevoArrayKi = {
-      0: nasa1,
-      1: nasa2,
-      2: nasa3,
-      3: nasa4,
-      4: nasa5,
-      5: nasa6,
-      6: nasa7,
-      7: nasa8,
-      8: nasa9,
-    };
-    nuevoArrayK = nuevoArrayKi;
+  }
+  const array = [];
+  for (let i = 1; i <= divisionesSobra; i++) {
+    array.push(i);
   }
 
-  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <>
       <section className="packages" id="galeria">
@@ -85,7 +75,7 @@ const Galeria = () => {
             <div className="box-container" key={nasa}>
               <input type="checkbox" id={`click${nasa}`} />
               <div className="main">
-                {nuevoArrayK[index].map((data, index2) => (
+                {nuevoArrayK1[index].map((data, index2) => (
                   <GaleriaItem
                     key={index2}
                     data={data}
@@ -110,7 +100,7 @@ const Galeria = () => {
           alignItems="center"
         >
           <Pagination
-            count={32}
+            count={36}
             color="primary"
             onChange={handleChangePagina}
             page={pagina}
