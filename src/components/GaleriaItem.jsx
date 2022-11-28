@@ -21,10 +21,7 @@ const GaleriaItem = ({ nasa, data, pagina, index }) => {
             <h3>
               {data?.camera?.name} {data?.id}
             </h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam,
-              eos.
-            </p>
+            <p>{data.img_src}</p>
 
             <Link
               to={`/Nasa/galeriadetalle/${data?.id}-${pagina}`}

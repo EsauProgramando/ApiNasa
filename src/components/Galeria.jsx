@@ -37,6 +37,7 @@ const Galeria = () => {
     var divisionesSobra = Math.ceil(dataNasa.photos.length / cant);
 
     for (let i = 0; i < divisiones; i++) {
+      eval("let nasa" + i + "=[]");
       for (let j = incioCont; j < cant + incioCont; j++) {
         eval("nasa" + i + ".push(dataNasa.photos[" + j + "])");
         //incioCont++
